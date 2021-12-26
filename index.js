@@ -1,13 +1,13 @@
-document.write('<h1>Hola</h1>');
+//document.write('<h1>Hola</h1>');
 //console.log('java');
 var x = 5 ;
-document.writeln(x);
+//document.writeln(x);
 
 //funcion
 function Sumar(a,b,c){
     var x = a+b;
     if(c==true){
-        document.writeln(x);
+        //document.writeln(x);
     }else{
         return x;
     }
@@ -20,7 +20,7 @@ function Sumar(a,b,c){
 //objetos
 var persona1 = {nombre:'pedro',apellido:'perez'};
 //las variables adentro del objeto, son propiedades.
-document.writeln(persona1.nombre +'length:'+ persona1.nombre.length); //accediendo a la propiedad nombre.
+//document.writeln(persona1.nombre +'length:'+ persona1.nombre.length); //accediendo a la propiedad nombre.
 
 //constructor
 function persona(nombre,apellido,edad){
