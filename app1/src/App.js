@@ -1,9 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
-
+//import './App.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-icons/font/bootstrap-icons.css'
+import Home from './pages/Home';
+import {BrowserRouter as Router,Switch,Route,Link} from 'react-router-dom';
+import Publico from './layout/publico'
 function App() {
   return (
-    <div className="App">
+    <div>
+      <Router>
+        <Switch>
+          <Publico>
+            <Route  exact path='/'>
+              <Home/>
+            </Route>
+          </Publico>
+        </Switch>
+      </Router>
     </div>
   );
 }
