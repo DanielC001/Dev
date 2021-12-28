@@ -2,11 +2,13 @@
     display: flex;
     flex-direction: column;
     height: 100vh;
+    overflow-y: hidden;
 }
 
 .distribucion>main {
     height: 100%;
-    overflow-y: scroll;
+    background-color: rgb(194, 192, 192);
+    /*overflow-y: scroll;*/
 }
 
 .pri {
@@ -39,4 +41,67 @@
     font-size: x-large;
     padding-top: 5px;
     color: azure;
+}
+
+.imagenes {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.imagenes>img {
+    width: 950px;
+    border-radius: 5px;
+}
+
+.home {
+    display: flex;
+    flex-direction: row;
+}
+
+.formulario {
+    width: 300px;
+    height: fit-content;
+    margin-left: 180px;
+    margin-top: 180px;
+    padding: 10px;
+}
+
+.boton {
+    margin-left: 80px;
+}
+
+.Sidebar {
+    width: 18rem;
+    background-color: brown;
+}
+
+.privado {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+
+.privado>main {
+    display: flex;
+    width: 100%;
+}
+
+.Sidebar>ul {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 0%;
+    align-items: center;
+}
+
+.Sidebar>ul>li {
+    list-style-type: none;
+    /*border: 1px solid blue;*/
+    width: 100%;
+    text-align: center;
+    padding: 2px;
+}
+
+.Espaciado {
+    margin-top: 90px;
 }

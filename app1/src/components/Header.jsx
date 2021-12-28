@@ -1,5 +1,6 @@
 import React from 'react'
 import '../App.css'
+import {Link} from 'react-router-dom';
 const Header = () => {
     return (
         <div>
@@ -16,7 +17,9 @@ const Header = () => {
                             </li>
                         </ul>
                         <form className="d-flex">
-                            <button className="btn btn-success me-2"  type="button">Iniciar Sesión</button>
+                            <Link to='/registro'>
+                                <button className="btn btn-success me-2"  type="button">Registrarse</button>
+                            </Link>
                         </form>
                     </div>
                 </div>
