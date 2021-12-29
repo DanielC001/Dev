@@ -1,7 +1,20 @@
 import React from 'react'
 import { useEffect,useState } from 'react'  //capturar acciones
+import axios from 'axios';
 
 const Index = () => {
+    const options={
+        method:'POST',
+        url:'http://localhost:5000/vehiculos/nuevo',
+        headers:{'content-type':'application/json'},
+        data:{name:'Sandero',marca:'Renault'},
+    };
+
+    axios.request(options).then(function(response){
+        console.log(response.data);
+    }).catch(function(error){
+        console.log(error);
+    });
 
     const[nombreVehiculo,setVehiculo]=useState('');
     const[mostrarTabla,setMostarTabla]=useState(true);
