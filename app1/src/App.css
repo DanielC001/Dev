@@ -105,3 +105,11 @@
 .Espaciado {
     margin-top: 90px;
 }
+
+.botonAzul {
+    background-color: rgb(80, 148, 226);
+}
+
+.botonVerde {
+    background-color: rgb(51, 173, 88);
+}
