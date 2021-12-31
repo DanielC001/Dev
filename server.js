@@ -6,7 +6,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 dotenv.config({path:'./.env'});
 const {BD_URI}=process.env;
-const {PORT}=process.env || 5000;
+const port =process.env.PORT || 5000;
 
 
 const client = new MongoClient(BD_URI,{
@@ -113,7 +113,7 @@ const main=()=>{
         }
         conexion = db.db('concesionario');
         console.log('Conectado a la base de datos');
-        return app.listen(PORT,()=>{
+        return app.listen(port,()=>{
             console.log('Conectado en el puerto 5000');
         });
     });
