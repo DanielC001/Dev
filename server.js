@@ -13,6 +13,7 @@ const client = new MongoClient(BD_URI,{
     useNewUrlParser:true,
     useUnifiedTopology:true,
 })
+let conexion;
 
 const app = Express();
 app.use(Express.json());
@@ -104,7 +105,6 @@ app.delete('/vehiculos/eliminar',(req,res)=>{
     console.log('Conectado en el puerto 5000');
 });*/
 
-let conexion;
 
 const main=()=>{
     client.connect((err,db)=>{
