@@ -6,7 +6,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 dotenv.config();
 const {BD_URI}=process.env;
-const {PORT}=process.env;
+const {PORT}=process.env || 5000;
 
 
 const client = new MongoClient(BD_URI,{
