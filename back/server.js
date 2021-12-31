@@ -1,9 +1,12 @@
 //const express = require('express');
 import Express from 'express';
-import {MongoClient} from 'mongodb';
+import {MongoClient,ObjectId} from 'mongodb';
+//const cors = require('cors');
+import cors from 'cors';
 import dotenv from 'dotenv';
 dotenv.config();
 const {BD_URI}=process.env;
+const {PORT}=process.env;
 
 
 const client = new MongoClient(BD_URI,{
@@ -13,6 +16,7 @@ const client = new MongoClient(BD_URI,{
 
 const app = Express();
 app.use(Express.json());
+app.use(cors());
 
 //Funcionalidad
 //el navegador solo recibe peticiones get
@@ -65,9 +69,41 @@ app.post('/vehiculos/nuevo',(req,res)=>{
     //console.log('Vehiculo a crear',req.body);
 ;});
 
+app.patch('/vehiculos/editar',(req,res)=>{
+    const edicion = req.body;
+    const filtro = {_id:new ObjectId(edicion.id)};
+    delete edicion.id;
+    const operacion={
+        $set:edicion,
+    };
+    conexion.collection('vehiculo').findOneAndUpdate(filtro,operacion,{upsert:true,returnOriginal:true},(err,result)=>{
+        if(err){
+            console.log('error',err);
+            res.sendStatus(500);
+        }else{
+            console.log('actualizado');
+            res.sendStatus(200);
+        }
+    });
+})
+
+app.delete('/vehiculos/eliminar',(req,res)=>{
+    const edicion = req.body;
+    const filtro = {_id:new ObjectId(edicion.id)};
+    conexion.collection('vehiculo').deleteOne(filtro,(err,result)=>{
+        if(err){
+            console.log('error',err);
+            res.sendStatus(500);
+        }else{
+            console.log('actualizado');
+            res.sendStatus(200);
+        }
+    })
+});
 /*app.listen(5000,()=>{
     console.log('Conectado en el puerto 5000');
 });*/
+
 let conexion;
 
 const main=()=>{
@@ -77,7 +113,7 @@ const main=()=>{
         }
         conexion = db.db('concesionario');
         console.log('Conectado a la base de datos');
-        return app.listen(5000,()=>{
+        return app.listen(PORT,()=>{
             console.log('Conectado en el puerto 5000');
         });
     });
