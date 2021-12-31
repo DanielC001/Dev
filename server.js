@@ -5,11 +5,11 @@ import {MongoClient,ObjectId} from 'mongodb';
 import cors from 'cors';
 import dotenv from 'dotenv';
 dotenv.config({path:'./.env'});
-const {BD_URI}=process.env;
+const url=process.env.BD_URI;
 const port =process.env.PORT || 5000;
 
 
-const client = new MongoClient(BD_URI,{
+const client = new MongoClient(url,{
     useNewUrlParser:true,
     useUnifiedTopology:true,
 })
