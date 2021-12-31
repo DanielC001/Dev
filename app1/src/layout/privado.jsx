@@ -1,11 +1,17 @@
 import React from 'react'
 import Sidebar from '../components/Sidebar';
-const privado = ({children}) => {
+//import { useAuth0 } from '@auth0/auth0-react';
+import RutaPrivada from '../components/RutaPrivada';
+const privado = ({ children }) => {
+    //const {user,isAuthenticated,isLoading}= useAuth0();
+
     return (
-        <div className='privado'>
-            <Sidebar></Sidebar>
-            <main>{children}</main>
-        </div>
+        <RutaPrivada>
+            <div className='privado'>
+                <Sidebar></Sidebar>
+                <main>{children}</main>
+            </div>
+        </RutaPrivada>
     )
 }
 

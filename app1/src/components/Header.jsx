@@ -1,7 +1,10 @@
 import React from 'react'
 import '../App.css'
 import {Link} from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react';
 const Header = () => {
+    const {loginWithRedirect} = useAuth0();
+    const {logout} = useAuth0();
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar navbar-dark bg-primary">
@@ -14,6 +17,12 @@ const Header = () => {
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
                                 <a className="nav-link active" aria-current="page" href="/">Home</a>
+                            </li>
+                            <li className="nav-item">
+                                <button className="btn btn-success me-2"  type="button" onClick={()=>loginWithRedirect()}>Auth</button>
+                            </li>
+                            <li className="nav-item">
+                                <button className="btn btn-success me-2"  type="button" onClick={()=>logout()} >Cerrar Sesion auth</button>
                             </li>
                         </ul>
                         <form className="d-flex">

@@ -1,11 +1,12 @@
+import { nanoid } from 'nanoid';
 import React from 'react'
 import { useEffect, useState, useRef } from 'react'  //capturar acciones
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css'
 import axios from 'axios';
-import {nanoid} from 'nanoid';
 //import {obtenerVeh} from '../../utils/api'
 import '../../App.css'
+
 
 const Vehiculos = () => {
     const [mostrarTabla, setMostrarTabla] = useState(true);
