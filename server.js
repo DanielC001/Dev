@@ -4,7 +4,7 @@ import {MongoClient,ObjectId} from 'mongodb';
 //const cors = require('cors');
 import cors from 'cors';
 import dotenv from 'dotenv';
-dotenv.config();
+dotenv.config({path:'./.env'});
 const {BD_URI}=process.env;
 const {PORT}=process.env || 5000;
 
