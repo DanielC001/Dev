@@ -6,13 +6,13 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 dotenv.config({path:'./.env'});
 const url=process.env.BD_URI;
-const port =process.env.PORT || 5000;
+const port =process.env.PORT || 6000;
 
 
 const client = new MongoClient(url,{
     useNewUrlParser:true,
     useUnifiedTopology:true,
-})
+});
 let conexion;
 
 const app = Express();
