@@ -1,26 +1,23 @@
-//const express = require('express');
-import Express from 'express';
+import express from 'express';
+import { MongoClient , ObjectId } from 'mongodb';
 import cors from 'cors';
-import {MongoClient,ObjectId} from 'mongodb';
-//const cors = require('cors');
 import dotenv from 'dotenv';
 dotenv.config({path:'./.env'});
-const url=process.env.BD_URI;
+
+//const stringConexion = 'mongodb+srv://admin:admin1234@cluster0.cuue1.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+const stringConexion = process.env.BD_URI;
 const port =process.env.PORT || 5000;
-
-
-
-const client = new MongoClient(url,{
+const client = new MongoClient(stringConexion,{
     useNewUrlParser:true,
     useUnifiedTopology:true,
 });
 
-const app = Express();
-app.use(Express.json());
-app.use(cors());
 let conexion;
-//Funcionalidad
-//el navegador solo recibe peticiones get
+const app = express();
+
+app.use(express.json());
+app.use(cors());
+
 app.get('/vehiculos',(req,res)=>{
     console.log('alguien hizo get en la ruta /vehiculos');
     //res.send('Hola mundo');
@@ -101,24 +98,19 @@ app.delete('/vehiculos/eliminar',(req,res)=>{
         }
     })
 });
-/*app.listen(5000,()=>{
-    console.log('Conectado en el puerto 5000');
-});*/
 
-
-const main=()=>{
-    client.connect((err,res)=>{
+const main = () =>{
+    client.connect((err,db)=>{
         if(err){
-            console.log('error de conexion');
+            console.error('Error conectando');
         }
-        conexion = res.db('concesionario');
-        console.log('Conectado a la base de datos');
-        return app.listen(port,()=>{
-            console.log('Conectado en el puerto 5000');
+        conexion=db.db('concesionario');
+        console.log('conectado a la BD');
+        return app.listen(5000,()=>{
+            console.log('escuchando puerto 5000');
         });
     });
-};
+    //const conexion = 
+}
 
 main();
-
-
