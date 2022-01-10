@@ -106,8 +106,8 @@ const main = () =>{
         }
         conexion=db.db('concesionario');
         console.log('conectado a la BD');
-        return app.listen(5000,()=>{
-            console.log('escuchando puerto 5000');
+        return app.listen(port,()=>{
+            console.log(`escuchando puerto ${port}`);
         });
     });
     //const conexion = 
