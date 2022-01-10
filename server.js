@@ -107,11 +107,11 @@ app.delete('/vehiculos/eliminar',(req,res)=>{
 
 
 const main=()=>{
-    client.connect((err,db)=>{
+    client.connect((err,res)=>{
         if(err){
             console.log('error de conexion');
         }
-        conexion = db.db('concesionario');
+        conexion = res.db('concesionario');
         console.log('Conectado a la base de datos');
         return app.listen(port,()=>{
             console.log('Conectado en el puerto 5000');
