@@ -6,19 +6,18 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 dotenv.config({path:'./.env'});
 const url=process.env.BD_URI;
-const port =process.env.PORT || 6000;
-
-
-const client = new MongoClient(url,{
-    useNewUrlParser:true,
-    useUnifiedTopology:true,
-});
-let conexion;
+const port =process.env.PORT || 5000;
 
 const app = Express();
 app.use(Express.json());
 app.use(cors());
 
+const client = new MongoClient(url,{
+    useNewUrlParser:true,
+    useUnifiedTopology:true,
+});
+
+let conexion;
 //Funcionalidad
 //el navegador solo recibe peticiones get
 app.get('/vehiculos',(req,res)=>{
