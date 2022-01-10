@@ -1,22 +1,23 @@
 //const express = require('express');
 import Express from 'express';
+import cors from 'cors';
 import {MongoClient,ObjectId} from 'mongodb';
 //const cors = require('cors');
-import cors from 'cors';
 import dotenv from 'dotenv';
 dotenv.config({path:'./.env'});
 const url=process.env.BD_URI;
 const port =process.env.PORT || 5000;
 
-const app = Express();
-app.use(Express.json());
-app.use(cors());
+
 
 const client = new MongoClient(url,{
     useNewUrlParser:true,
     useUnifiedTopology:true,
 });
 
+const app = Express();
+app.use(Express.json());
+app.use(cors());
 let conexion;
 //Funcionalidad
 //el navegador solo recibe peticiones get
