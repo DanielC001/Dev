@@ -4,7 +4,6 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 dotenv.config({path:'./.env'});
 
-//const stringConexion = 'mongodb+srv://admin:admin1234@cluster0.cuue1.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 const stringConexion = process.env.BD_URI;
 const port =process.env.PORT || 5000;
 const client = new MongoClient(stringConexion,{
@@ -14,7 +13,6 @@ const client = new MongoClient(stringConexion,{
 
 let conexion;
 const app = express();
-
 app.use(express.json());
 app.use(cors());
 
@@ -110,7 +108,6 @@ const main = () =>{
             console.log(`escuchando puerto ${port}`);
         });
     });
-    //const conexion = 
 }
 
 main();
